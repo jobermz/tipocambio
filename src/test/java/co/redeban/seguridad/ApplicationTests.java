@@ -9,9 +9,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import pe.bbva.tipocambio.business.core.dto.RolDto;
+import pe.bbva.tipocambio.business.core.dto.RequestTipoCambioDto;
 
-@SpringBootTest(classes = RolDto.class)
+@SpringBootTest(classes = RequestTipoCambioDto.class)
 
 @EnableTransactionManagement
 //@EntityScan("pe.bbva.tipocambio.dao.*")

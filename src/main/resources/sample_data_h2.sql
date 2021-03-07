@@ -1,0 +1,4 @@
+-- create table tipo_cambio (id integer not null, fecha timestamp, moneda_destino varchar(255), moneda_origen varchar(255), tipo_cambio double, primary key (id));
+INSERT INTO TIPO_CAMBIO (id, moneda_origen, moneda_destino, tipo_cambio, fecha) VALUES(next value for hibernate_sequence, 'USD', 'PEN', 3.3, parsedatetime('01-03-2021 00:00:00.00', 'dd-MM-yyyy hh:mm:ss.SS'));
+INSERT INTO TIPO_CAMBIO (id, moneda_origen, moneda_destino, tipo_cambio, fecha) VALUES(next value for hibernate_sequence, 'USD', 'PEN', 3.5, parsedatetime('02-03-2021 00:00:00.00', 'dd-MM-yyyy hh:mm:ss.SS'));
+INSERT INTO TIPO_CAMBIO (id, moneda_origen, moneda_destino, tipo_cambio, fecha) VALUES(next value for hibernate_sequence, 'USD', 'PEN', 3.9, parsedatetime('03-03-2021 00:00:00.00', 'dd-MM-yyyy hh:mm:ss.SS'));

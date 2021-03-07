@@ -12,9 +12,15 @@ public class LoginServiceImpl implements LoginService {
 	public ResponseInternal<ResponseUsuarioDTO> login(String identificador, String password, String ip, String tokenV3) {
 		ResponseInternal<ResponseUsuarioDTO> responseInternal = new ResponseInternal<>();
 		ResponseUsuarioDTO usuarioDTO = new ResponseUsuarioDTO();
-		usuarioDTO.setUsuarioNombre("admin");
-		responseInternal.setStatus(true);
-		responseInternal.setBody(usuarioDTO);
+		if(identificador.equalsIgnoreCase("admin") && password.equalsIgnoreCase("123")) {
+			usuarioDTO.setUsuarioNombre("admin");
+			responseInternal.setStatus(true);
+			responseInternal.setBody(usuarioDTO);
+		} else {
+			usuarioDTO.setUsuarioNombre("");
+			responseInternal.setStatus(false);
+			responseInternal.setBody(usuarioDTO);
+		}
 		return responseInternal;
 	}
 	
