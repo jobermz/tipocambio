@@ -3,7 +3,9 @@ package pe.bbva.tipocambio.business.core.service.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -51,32 +53,13 @@ public class TipoCambioServiceImpl implements TipoCambioService {
 		}
 		return listRS;
 	}
-	public ResponseTipoCambioDto consultarPorId(Integer id) {
-		TipoCambio tipoCambio = tipoCambioDao.consultarPorId(id);
-		
-		ResponseTipoCambioDto tipoCambioDto		= new ResponseTipoCambioDto();
-		if(tipoCambio != null) {
-			BeanUtils.copyProperties(tipoCambio, tipoCambioDto);
-		} else {
-			return null;
-		}
-		return tipoCambioDto;
-	}
-
+	
 	public void actualizar(RequestTipoCambioDto tipoCambioDto) {
 		TipoCambio tipoCambio = new TipoCambio();
-			BeanUtils.copyProperties(tipoCambioDto, tipoCambio);
-		tipoCambioDao.guardar(tipoCambio);
-	}
-	
-	public void registrar(RequestTipoCambioDto tipoCambioDto) {
-		TipoCambio tipoCambio = new TipoCambio();
 		BeanUtils.copyProperties(tipoCambioDto, tipoCambio);
+		tipoCambio.setId(null);
+		tipoCambio.setFecha(new Timestamp(new Date().getTime()));
 		tipoCambioDao.guardar(tipoCambio);
-	}
-	
-	public void eliminar(Integer id) {
-		tipoCambioDao.eliminar(id);
 	}
 	
 }

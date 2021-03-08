@@ -11,8 +11,5 @@ public interface TipoCambioService {
 	public void iniciarDB();
 	public ResponseCotizarDto cotizarTipoCambio(RequestCotizarDto dto);
 	public List<ResponseTipoCambioDto> consultar();
-	public ResponseTipoCambioDto consultarPorId(Integer idRol);
 	public void actualizar(RequestTipoCambioDto dto);
-	public void registrar(RequestTipoCambioDto dto);
-	public void eliminar(Integer id);
 }

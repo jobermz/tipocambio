@@ -9,6 +9,4 @@ public interface TipoCambioDao {
 	public TipoCambio consultarUltimaCotizacion(String monedaOrigen, String monedaDestino);
 	public List<TipoCambio> consultar();
 	public void guardar(TipoCambio rol);
-	public void eliminar(Integer id);
-	public TipoCambio consultarPorId(Integer id);
 }

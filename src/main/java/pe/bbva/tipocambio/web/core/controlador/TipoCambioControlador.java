@@ -67,32 +67,7 @@ public class TipoCambioControlador {
 		return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
 	}
 
-	@GetMapping("/consultar/{idRol}")
-	public ResponseEntity<ResponseDTO<ResponseTipoCambioDto>> consultarPorId(@PathVariable("idRol") Integer idRol) {
-		ResponseTipoCambioDto tipoCambioDto = tipoCambioService.consultarPorId(idRol);
-		ResponseDTO<ResponseTipoCambioDto> responseDTO = null;
-		if(tipoCambioDto != null) {
-			responseDTO = Util.returnResponseSuccessful(tipoCambioDto);
-		} else {
-			responseDTO = Util.returnResponseProblem("No se encontro el perfil");
-		}
-		return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
-	}
-
-	@PostMapping("/registrar")
-	public ResponseEntity<ResponseDTO<String>> registrar(@RequestBody RequestTipoCambioDto tipoCambioDto) {
-		ResponseDTO<String> responseDTO = null;
-		try {
-			tipoCambioService.registrar(tipoCambioDto);
-			responseDTO = Util.returnResponseSuccessful("Ok");
-		} catch(Exception ex) {
-			ex.printStackTrace();
-			responseDTO = Util.returnResponseProblem("No se pudo registrar el tipoCambio");
-		}
-		return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
-	}
-
-	@PutMapping("/actualizar")
+	@PostMapping("/actualizar")
 	public ResponseEntity<ResponseDTO<String>> actualizar(@RequestBody RequestTipoCambioDto tipoCambioDto) {
 		ResponseDTO<String> responseDTO = null;
 		try {
@@ -105,16 +80,41 @@ public class TipoCambioControlador {
 		return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
 	}
 
-	@DeleteMapping("/eliminar/{id}")
-	public ResponseEntity<ResponseDTO<String>> eliminar(@PathVariable("id") Integer idRol) {
-		ResponseDTO<String> responseDTO = null;
-		try {
-			tipoCambioService.eliminar(idRol);
-			responseDTO = Util.returnResponseSuccessful("Ok");
-		} catch(Exception ex) {
-			ex.printStackTrace();
-			responseDTO = Util.returnResponseProblem("No se pudo eliminar el tipoCambio");
-		}
-		return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
-	}
+//	@GetMapping("/consultar/{idRol}")
+//	public ResponseEntity<ResponseDTO<ResponseTipoCambioDto>> consultarPorId(@PathVariable("idRol") Integer idRol) {
+//		ResponseTipoCambioDto tipoCambioDto = tipoCambioService.consultarPorId(idRol);
+//		ResponseDTO<ResponseTipoCambioDto> responseDTO = null;
+//		if(tipoCambioDto != null) {
+//			responseDTO = Util.returnResponseSuccessful(tipoCambioDto);
+//		} else {
+//			responseDTO = Util.returnResponseProblem("No se encontro el perfil");
+//		}
+//		return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
+//	}
+//
+//	@PostMapping("/registrar")
+//	public ResponseEntity<ResponseDTO<String>> registrar(@RequestBody RequestTipoCambioDto tipoCambioDto) {
+//		ResponseDTO<String> responseDTO = null;
+//		try {
+//			tipoCambioService.registrar(tipoCambioDto);
+//			responseDTO = Util.returnResponseSuccessful("Ok");
+//		} catch(Exception ex) {
+//			ex.printStackTrace();
+//			responseDTO = Util.returnResponseProblem("No se pudo registrar el tipoCambio");
+//		}
+//		return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
+//	}
+
+//	@DeleteMapping("/eliminar/{id}")
+//	public ResponseEntity<ResponseDTO<String>> eliminar(@PathVariable("id") Integer idRol) {
+//		ResponseDTO<String> responseDTO = null;
+//		try {
+//			tipoCambioService.eliminar(idRol);
+//			responseDTO = Util.returnResponseSuccessful("Ok");
+//		} catch(Exception ex) {
+//			ex.printStackTrace();
+//			responseDTO = Util.returnResponseProblem("No se pudo eliminar el tipoCambio");
+//		}
+//		return ResponseEntity.status(HttpStatus.OK).body(responseDTO);
+//	}
 }

@@ -48,13 +48,4 @@ public class TipoCambioDaoImpl implements TipoCambioDao {
 		tipoCambioRepository.save(tipoCambio);
 	}
 
-	public void eliminar(Integer id) {
-		tipoCambioRepository.deleteById(id);
-	}
-	
-	public TipoCambio consultarPorId(Integer id) {
-		List<TipoCambio> list = (List<TipoCambio>) tipoCambioRepository.findAllById(Arrays.asList(new Integer[] {id}));
-		return list.size() > 0 ? list.get(0) : null;
-	}
-	
 }
